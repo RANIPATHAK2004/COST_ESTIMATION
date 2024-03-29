@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Expert Judgment Cost Estimation</title>
+<style>
+    body {
+        background-color: bisque;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    label {
+        display: block;
+        margin-bottom: 5px;
+    }
+    input[type="number"] {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+    }
+    button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: #45a049;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <h2>Expert Judgment Cost Estimation</h2>
+    <label for="projectSize">Project Size (in LOC):</label>
+    <input type="number" id="projectSize" placeholder="Enter project size">
+    <label for="complexity">Complexity Factor:</label>
+    <input type="number" id="complexity" placeholder="Enter complexity factor">
+    <label for="expertise">Expertise Factor:</label>
+    <input type="number" id="expertise" placeholder="Enter expertise factor">
+    <button onclick="estimateCost()">Estimate Cost</button>
+    <p id="costResult"></p>
+</div>
+<script>
+    function estimateCost() {
+        var projectSize = parseFloat(document.getElementById('projectSize').value);
+        var complexity = parseFloat(document.getElementById('complexity').value);
+        var expertise = parseFloat(document.getElementById('expertise').value);
+        
+        // Apply expert judgment formula (example)
+        var cost = projectSize * complexity * expertise * 10; // Example formula
+        
+        document.getElementById('costResult').innerText = "Estimated Cost: $" + cost.toFixed(2);
+    }
+</script>
+</body>
+</html>

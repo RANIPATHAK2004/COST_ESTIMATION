@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COCOMO Calculator</title>
+</head>
+<body >
+    <center>
+    <h1>COCOMO Calculator</h1>
+    <label for="kloc">Estimated Size (KLOC):</label>
+    <input type="number" id="kloc" step="0.01">
+    <button onclick="calculate()">Calculate</button>
+    <p id="result"></p>
+
+    <script>
+        function calculate() {
+            const kloc = parseFloat(document.getElementById('kloc').value);
+            const a = 2.4; // Organic project
+            const b = 1.05; // Organic project
+
+            const effort = a * Math.pow(kloc, b);
+
+            document.getElementById('result').textContent = `Estimated Effort: ${effort.toFixed(2)} person-months`;
+        }
+    </script>
+    </center>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Function Point Analysis</title>
+    <style>
+        #main{
+            height: 800px;
+            width: 100%;
+             background-color: blanchedalmond;
+        }
+    </style>
+    <script>
+        function calculateFP() {
+            var counts = {
+                userRegistration: parseInt(document.getElementById('userRegistration').value),
+                login: parseInt(document.getElementById('login').value),
+                search: parseInt(document.getElementById('search').value),
+                dataEntry: parseInt(document.getElementById('dataEntry').value)
+            };
+
+            var weights = {
+                userRegistration: 5, // example weights
+                login: 3,
+                search: 4,
+                dataEntry: 7
+            };
+
+            var totalFP = 0;
+
+            for (var key in counts) {
+                if (counts.hasOwnProperty(key)) {
+                    totalFP += counts[key] * weights[key];
+                }
+            }
+
+            document.getElementById('result').innerText = 'Total Function Points: ' + totalFP;
+        }
+    </script>
+</head>
+<body>
+    <div id = "main">
+        <center>
+    <h2>Function Point Analysis</h2>
+    <div>
+        <label for="userRegistration">User Registration:</label>
+        <input type="number" id="userRegistration" value="0">
+    </div>
+    <div>
+        <label for="login">Login:</label>
+        <input type="number" id="login" value="0">
+    </div>
+    <div>
+        <label for="search">Search Functionality:</label>
+        <input type="number" id="search" value="0">
+    </div>
+    <div>
+        <label for="dataEntry">Data Entry Forms:</label>
+        <input type="number" id="dataEntry" value="0">
+    </div>
+    <button onclick="calculateFP()">Calculate</button>
+    <div id="result"></div>
+        </center>
+    </div>
+</body>
+</html>
